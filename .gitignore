@@ -1,3 +1,8 @@
 target
 .idea
 .DS_Store
+bin
+.metadata
+.project
+.classpath
+.settings
