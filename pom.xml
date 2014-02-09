@@ -43,18 +43,33 @@
 		</developer>
 	</developers>
 
+	<repositories>
+		<repository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/releases</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.7</jdk.version>
 		<maven.version>3.0</maven.version>
 
 		<!-- Dependencies versions -->
-		<antlr4.version>4.1</antlr4.version>
+		<antlr4.version>4.2</antlr4.version>
 		<hamcrest.version>1.2.1</hamcrest.version>
 		<junit.version>4.11</junit.version>
 
 		<!-- Plugins versions -->
-		<antlr4-maven-plugin.version>4.1</antlr4-maven-plugin.version>
+		<antlr4-maven-plugin.version>4.2</antlr4-maven-plugin.version>
+		<build-helper-maven-plugin.version>1.8</build-helper-maven-plugin.version>
 		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>2.7</maven-dependency-plugin.version>
 		<maven-enforcer-plugin.version>1.3.1</maven-enforcer-plugin.version>
@@ -107,6 +122,11 @@
 					<groupId>org.antlr</groupId>
 					<artifactId>antlr4-maven-plugin</artifactId>
 					<version>${antlr4-maven-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${build-helper-maven-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -205,10 +225,35 @@
 					</execution>
 				</executions>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.antlr</groupId> -->
-<!-- 				<artifactId>antlr4-maven-plugin</artifactId> -->
-<!-- 			</plugin> -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>target/generated-sources/antlr4</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.antlr</groupId>
+				<artifactId>antlr4-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>antlr</id>
+						<goals>
+							<goal>antlr4</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 
 	</build>
