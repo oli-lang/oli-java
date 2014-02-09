@@ -2,4 +2,4 @@
  * @author aalda
  *
  */
-package org.oli.olijava;
+package org.oli_lang.oli;
