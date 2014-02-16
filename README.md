@@ -1,8 +1,8 @@
 # oli-java
 
-> Blazing fast parser and compiler written in Java for the JVM
+> Blazing fast parser and compiler written in Java
 
-> **exiting work in progress**
+> **SPOILER! Exiting work in progress**
 
 
 ## License
