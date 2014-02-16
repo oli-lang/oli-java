@@ -229,7 +229,7 @@ ANCHOR				: '&' ;
 LOGICAL_NOT			: '!' ;
 ANCHOR_NOT			: LOGICAL_NOT ANCHOR ;
 EXTEND				: '>>' ;
-MERGE				: '>>>' ;
+MERGE 				: '>>>' ;
 
 // Identifiers
 
