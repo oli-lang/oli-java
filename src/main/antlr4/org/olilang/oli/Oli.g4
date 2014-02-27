@@ -212,24 +212,23 @@ COMMA				: ',' ;
 
 // Operators
 
-ASSIGN				: ':' ;
+ASSIGN				  : ':' ;
 VAR_ASSIGN			: '=' ;
 ASSIGN_RAW			: ':>' ;
 ASSIGN_NOT			: ':!' ;
 ASSIGN_UNFOLD		: ':=' ;
 ASSIGN_FOLD			: ':-' ;
-PIPE				: '|' ;
-PIPE_NOT			: '|!' ;
-DASH				: '-' ;
+PIPE				    : '|' ;
+PIPE_NOT			  : '|!' ;
+DASH				    : '-' ;
 DOUBLE_DASH			: '--' ;
 RELATIONAL			: '>' ;
-RELATIONAL_NOT		: '!>' ;
-REFERENCE			: '*' ;
-ANCHOR				: '&' ;
+RELATIONAL_NOT	: '!>' ;
+REFERENCE			  : '*' ;
+ANCHOR				  : '&' ;
 LOGICAL_NOT			: '!' ;
-ANCHOR_NOT			: LOGICAL_NOT ANCHOR ;
-EXTEND				: '>>' ;
-MERGE 				: '>>>' ;
+EXTEND				  : '>>' ;
+MERGE 				  : '>>>' ;
 
 // Identifiers
 
@@ -252,14 +251,13 @@ LineTerminator
 				
 LineTerminatorSequence
 	: '\n'
-  	| '\r'
-  	| '\u2028' // line separator
-  	| '\u2029' // paragraph separator  						
-  	;  						
+	| '\r'
+	| '\u2028' // line separator
+	| '\u2029' // paragraph separator  						
+  ;  						
 
 EOSNoLineTerminator
 	: ~[\n\r\u2028\u2029]
-
 	;
 
 ElementSeparator
@@ -271,7 +269,7 @@ ElementSeparator
 
 WS
 	:  [\t\v\f\u00A0\uFEFF]+ -> skip
-    ;
+  ;
 
 COMMENT
 	: ('#' ~[\r\n]*) -> channel(HIDDEN)
